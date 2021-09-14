@@ -15,9 +15,16 @@ export default function Product(props) {
           ratings={product.ratings}
         
         ></Ratings>
+        <div>Category: {product.category.title}</div>
+
+        <div>Brand: {product.brand.name}</div>
+
+    
         <div className="price">${product.price}</div>
       </div>
     </div>
   );
 }
 
+// <div>SPECS: {[product.specs.name]}</div>
+// <div>SPECS: {[product.specs.value]}</div>

@@ -9,13 +9,15 @@ import {
   ORDER_DETAILS_SUCCESS,
 } from '../constants/orderConstants';
 
-export const createOrder = (order) => async (dispatch, getState) => {
+export const createOrder = (order, props) => async (dispatch) => {
   dispatch({ type: ORDER_CREATE_REQUEST, payload: order });
   try {
   
-    const { data } = await Axios.post('/api/orders', order, {
-      
-    });
+    const { data } = await Axios.post('/api/checkout');
+      if(props){
+    props.history.push(`/checkout`);
+    console.log(order.id)
+      }
     dispatch({ type: ORDER_CREATE_SUCCESS, payload: data.order });
     dispatch({ type: CART_EMPTY });
     localStorage.removeItem('cartItems');
@@ -29,12 +31,16 @@ export const createOrder = (order) => async (dispatch, getState) => {
     });
   }
 };
-export const detailsOrder = (orderId) => async (dispatch) => {
+export const detailsOrder = (orderId,props) => async (dispatch) => {
     dispatch({ type: ORDER_DETAILS_REQUEST, payload: orderId });
   
     try {
-      const { data } = await Axios.get(`/api/orders/${orderId}`, 
+      const { data } = await Axios.get(`/api/orders/`, 
       );
+      //  if(props){
+      //    props.history.push(`/orders/${data.id}`);
+        console.log(data)
+          // }
       dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
     } catch (error) {
       const message =

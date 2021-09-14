@@ -7,7 +7,9 @@ import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
-
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 export default function ProductScreen(props) {
   const [qty, setQty] = useState(1);
@@ -39,6 +41,17 @@ export default function ProductScreen(props) {
         console.log(response);
       },
     )
+    store.addNotification({
+      title: 'Cart',
+      message: 'Added to cart',
+      type: 'default',                         // 'default', 'success', 'info', 'warning'
+      container: 'top-center',                // where to position the notifications
+      animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+      animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+      dismiss: {
+        duration: 3000
+      }
+    })
   };
 
 
@@ -66,6 +79,8 @@ export default function ProductScreen(props) {
              // numReviews={product.numReviews}
             ></Rating>
           </li>
+          <li>Category: {products.category.title}</li>
+          <li>Brand: {products.brand.name}</li>
           <li>Pirce : ${products.price}</li>
          
         </ul>

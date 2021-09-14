@@ -58,6 +58,8 @@ const Catmod3 = (props) => {
   return (
     <>
       <Form
+      // layout="flex"
+      // display="flex"
       // {...formItemLayout}
       // layout={formLayout}
       // form={form}
@@ -66,25 +68,41 @@ const Catmod3 = (props) => {
       // }}
       // onValuesChange={onFormLayoutChange}dfd
       >
-        <Form.Item label="Product Name">
+        <Form.Item 
+        style={{width:'100%',span:'100%',}}
+        // className="createProdName"
+        label="Product Name">
           <Input
+          
             value={value}
             placeholder="Type in Product Name"
             onChange={onChange}
           />
         </Form.Item>
-      </Form>
-
-      <Form>
-        <Form.Item label="Price">
+        </Form>
+        <Form
+        layout="flex"
+        >
+        <Form.Item 
+       
+        style={{width:'100%',span:'100%'}}
+        
+        label="Price">
           <Input
+          
             value={value1}
             placeholder="Type in Product Price"
             onChange={priceChange}
           />
         </Form.Item>
-
-        <Form.Item label="Ratings">
+        </Form>
+        <Form
+        layout="flex"
+        style={{layout:"flex",span:'100%'}}>
+        <Form.Item 
+        style={{width:'100%',span:'100%'}}
+        layout="flex"
+        label="Ratings">
           <Input
             value={value2}
             placeholder="rate it"
@@ -92,7 +110,7 @@ const Catmod3 = (props) => {
           />
         </Form.Item>
 
-       
+        </Form>
 
         {/* <Form.Item label="Input">
           <Input placeholder="Type in Product ID" />
@@ -109,7 +127,7 @@ const Catmod3 = (props) => {
         <Form.Item label="Category">
           <Input placeholder="Select Category" />
         </Form.Item> */}
-      </Form>
+      
     </>
   );
 };

@@ -5,10 +5,10 @@ import { Form, Input} from "antd";
 //import Brandmod from "./Brandmod";
 //import Update from "./Model";
 
-const Catmod = (props) => {
+const Catmod = (props, {onSubmit}) => {
   const [form] = Form.useForm();
   // const [formLayout, setFormLayout] = useState();
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState();
 
   // const onFormLayoutChange = ({ change }) => {
   //   setFormLayout(change);
@@ -18,9 +18,11 @@ const Catmod = (props) => {
 
   //    } ;
 
-  const onChange = (e) => {
+   const onChange = (e) => {
+    
     setValue(e.target.value);
     props.updateCategoryName(value);
+    // alert.show('Oh look, an alert!')
   };
 
   const formItemLayout = {
@@ -46,12 +48,14 @@ const Catmod = (props) => {
         // }}
         // onValuesChange={onFormLayoutChange}
       >
-        <Form.Item label="Input">
+        <Form.Item label="Category"
+        >
           <Input
            // key = {category.id}
             value={value}
             placeholder="Type in Category"
             onChange={onChange}
+            onSubmit={onSubmit}
           />
         </Form.Item>
       </Form>

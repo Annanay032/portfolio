@@ -58,20 +58,26 @@ const SpecProd = (props) => {
     <>
       <Form
         // {...formItemLayout}
-        layout={formLayout}
+        layout="flex"
+        
+
         // form={form}
         // initialValues={{
         //   layout: formLayout,
         // }}
         // onValuesChange={onFormLayoutChange}
       >
-        <Form.Item label="Spec-1">
+        <Form.Item 
+
+        label="Spec-1">
           {/* <Radio.Group value={formLayout}>
             
             <Radio.Button value="inline">Inline</Radio.Button>
           </Radio.Group> */}
         </Form.Item>
-        <Form.Item label="Name">
+        <Form.Item 
+       
+        label="Name">
           <Input placeholder="input placeholder" onChange={S1Change}/>
         </Form.Item>
         <Form.Item label="Value">

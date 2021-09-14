@@ -1,21 +1,19 @@
-
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import axios from '../../node_modules/axios/index';
-import CheckoutSteps from '../components/CheckoutSteps';
-import { createOrder } from '../actions/orderActions';
-import { ORDER_CREATE_RESET } from '../constants/orderConstants';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import axios from "../../node_modules/axios/index";
+import CheckoutSteps from "../components/CheckoutSteps";
+import { createOrder } from "../actions/orderActions";
+import { ORDER_CREATE_RESET } from "../constants/orderConstants";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
 export default function PlaceOrderScreen(props) {
   const cart = useSelector((state) => state.cart);
 
   const orderCreate = useSelector((state) => state.orderCreate);
-  const { loading, success, error, order } = orderCreate;
- 
-  
+  const { loading, error, order } = orderCreate;
+
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
@@ -23,9 +21,7 @@ export default function PlaceOrderScreen(props) {
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-  
 
-  
   // const [cart, setCart] = useState([]);
 
   // useEffect(() => {
@@ -39,37 +35,32 @@ export default function PlaceOrderScreen(props) {
   //   getCharacters();
   // }, []);
   const dispatch = useDispatch();
-  const placeOrderHandler = async() => {
-    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
-   
-    const response = await axios({
-      method: "POST",
-      url: "/api/checkout",
-      data: {
-        amt: cart.totalPrice ,
 
-        
-      },
-    }).then(
-      (response) => {
-        console.log(response);
-        props.history.push(`/order/${order.id}`);
-      },
-    )
+  const placeOrderHandler = async () => {
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }, props));
 
+    // const response = await axios({
+    //   method: "POST",
+    //   url: "/api/checkout",
+    //   data: {
+    //     qty: toPrice,
+    //   },
+    // })
+    // .then((response) => {
+    //   console.log("order", response.data);
+    //   props.history.push(`/checkout/${order.id}`);
+    // })
   };
-    useEffect(() => {
-      if (success) {
-        // props.history.push(`/order/${order._id}`);
-        dispatch({ type: ORDER_CREATE_RESET });
-      }
-    }, [dispatch, order, props.history, success]);
- 
-    // TODO: dispatch place order action
-  
+  useEffect(() => {
+    // props.history.push(`/order/${order._id}`);
+    dispatch({ type: ORDER_CREATE_RESET });
+  }, [dispatch, order, props.history]);
+
+  // TODO: dispatch place order action
+
   return (
     <div>
-      <CheckoutSteps step1 step2 ></CheckoutSteps>
+      <CheckoutSteps step1 step2></CheckoutSteps>
       <div className="row top">
         <div className="col-2">
           <ul>
@@ -84,7 +75,7 @@ export default function PlaceOrderScreen(props) {
                 </p>
               </div>
             </li>
-           
+
             <li>
               <div className="card card-body">
                 <h2>Order Items</h2>
@@ -92,14 +83,13 @@ export default function PlaceOrderScreen(props) {
                   {cart.cartItems.map((item) => (
                     <li key={item.product}>
                       <div className="row">
-                        
                         <div className="min-30">
                           <Link to={`/products/${item.product}`}>
                             {item.title}
                           </Link>
                         </div>
 
-                        <div className ="amt">
+                        <div className="amt">
                           {item.qty} x ${item.price} = ${item.qty * item.price}
                         </div>
                       </div>

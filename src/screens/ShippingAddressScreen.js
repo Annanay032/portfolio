@@ -8,11 +8,11 @@ export default function ShippingAddressScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
   
-  const [fullName, setFullName] = useState(shippingAddress.fullName);
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  const [fullName, setFullName] = useState();
+  const [address, setAddress] = useState();
+  const [city, setCity] = useState();
+  const [postalCode, setPostalCode] = useState();
+  const [country, setCountry] = useState();
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -24,13 +24,16 @@ export default function ShippingAddressScreen(props) {
   return (
     <div>
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <form className="form" onSubmit={submitHandler}>
+      <form className="form" onSubmit={submitHandler}
+     
+      >
         <div>
           <h1>Shipping Address</h1>
         </div>
         <div>
           <label htmlFor="fullName">Full Name</label>
           <input
+          style={{width:'30%',span:'80%',}}
             type="text"
             id="fullName"
             placeholder="Enter full name"
@@ -42,6 +45,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="address">Address</label>
           <input
+          style={{width:'30%',span:'80%'}}
             type="text"
             id="address"
             placeholder="Enter address"
@@ -53,6 +57,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="city">City</label>
           <input
+          style={{width:'30%',span:'80%',}}
             type="text"
             id="city"
             placeholder="Enter city"
@@ -64,6 +69,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="postalCode">Postal Code</label>
           <input
+          style={{width:'30%',span:'80%',}}
             type="text"
             id="postalCode"
             placeholder="Enter postal code"
@@ -75,6 +81,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="country">Country</label>
           <input
+          style={{width:'30%',span:'80%',}}
             type="text"
             id="country"
             placeholder="Enter country"

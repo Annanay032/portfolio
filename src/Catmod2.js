@@ -44,7 +44,7 @@ const Catmod2 = (props) => {
         // }}
         // onValuesChange={onFormLayoutChange}
       >
-        <Form.Item label="Input">
+        <Form.Item label="Brand">
           <Input
             placeholder="Type in Brand"
             value={value}
