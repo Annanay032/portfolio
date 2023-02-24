@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { saveShippingAddress } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 
 export default function ShippingAddressScreen(props) {
 
-  const cart = useSelector((state) => state.cart);
-  const { shippingAddress } = cart;
-  
   const [fullName, setFullName] = useState();
   const [address, setAddress] = useState();
   const [city, setCity] = useState();

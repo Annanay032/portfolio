@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../node_modules/axios/index";
 // import { error } from "../../node_modules/loglevel/index";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
 
 
 

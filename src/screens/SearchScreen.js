@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { listProducts } from '../actions/productActions';
@@ -24,12 +24,6 @@ export default function SearchScreen(props) {
   }, [dispatch, title]);
 
   
-  const getFilterUrl = (filter) => {
-   
-    const filterTitle = filter.title || title;
-   
-    return `/search/title/${filterTitle}`;
-  };
   return (
     <div>
       <div className="row">

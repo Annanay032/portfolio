@@ -52,6 +52,8 @@ export default function ProductScreen(props) {
         duration: 3000
       }
     })
+  console.log(response);
+
   };
 
 
