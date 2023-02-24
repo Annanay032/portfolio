@@ -28,6 +28,7 @@ const GetCat = async (props) => {
   // fetch("http://localhost:5000/categories")
   //   .then((res) => res.json())
   //   .then((res) => console.log(res));
+  console.log(response)
 };
 
 //   .catch((err) => {
