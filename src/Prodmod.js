@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { Modal, Button , message, Form, Input} from "antd";
-import Catmod3 from "./Catmod3";
 import DropCat from "./DropCat";
 import DropBrand from "./DropBrand";
 import GetProd from "./axprod";
 // import onChange from "./Catmod3";
-import SpecProd from "./Spec";
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
 const Prodmod = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [form] = Form.useForm();
 
   const showModal = () => {
     setIsModalVisible(true);

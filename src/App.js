@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactNotifications from "react-notifications-component";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
@@ -42,7 +42,7 @@ function App() {
         <header className="row">
           <div>
             <Link className="brand" to="/">
-              Aerchain
+              New Commerce
             </Link>
           </div>
 

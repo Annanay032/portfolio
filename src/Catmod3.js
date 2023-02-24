@@ -34,14 +34,6 @@ const Catmod3 = (props) => {
     props.updateProductRatings(value2);
   };
 
-  const formItemLayout = {
-    labelCol: {
-      span: 11,
-    },
-    wrapperCol: {
-      span: 15,
-    },
-  };
   //   const brandmod =() => {
   //         <Brandmod/>
   //     };

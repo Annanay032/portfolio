@@ -6,36 +6,12 @@ import { Form, Input} from 'antd';
 
 const SpecProd = (props) => {
   // const [form] = Form.useForm();
-  const [formLayout, setFormLayout] = useState("inline");
   const [valueS1, setValueS1] = useState("");
   const [valueS2, setValueS2] = useState("");
 
   // const onFormLayoutChange = ({ layout }) => {
   //   setFormLayout(layout);
   // };
-
-
-
-  const formItemLayout =
-    formLayout === 'horizontal'
-      ? {
-          labelCol: {
-            span: 4,
-          },
-          wrapperCol: {
-            span: 14,
-          },
-        }
-      : null;
-  const buttonItemLayout =
-    formLayout === 'horizontal'
-      ? {
-          wrapperCol: {
-            span: 14,
-            offset: 4,
-          },
-        }
-      : null;
     
 
     const S1Change = (e) => {

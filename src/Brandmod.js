@@ -16,10 +16,6 @@ const Brandmod = () => {
     setIsModalVisible(true);
   };
 
-  const Prod = (e) => {
-    setValue(e);
-  };
-
   const handleOk = (e) => {
     e.preventDefault();
     if (value === "" || !value) {

@@ -16,6 +16,8 @@ const GetBrand = async (props) => {
       console.log(error);
     }
   );
+  console.log(response);
+
 };
 
 export default GetBrand;
