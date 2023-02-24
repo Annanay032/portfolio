@@ -33,15 +33,16 @@ export default  function SearchBox(props) {
   return (
       
     <form className="search" onSubmit={submitHandler}>
-      <div className="row">
+      <div className="row" style ={{display:"flex", flexDirection: 'row'}}>
         <input
           type="text"
           title="q"
           id="q"
+   style ={{height:"37px"}}
           // value={title}
           onChange={(e) => setTitle(e.target.value)}
         ></input>
-        <button className="primary" type="submit">
+        <button className="primary" type="submit" type="submit" style ={{height:"37px", marginBottom: '7px'}}>
           <i className="fa fa-search"></i>
         </button>
       </div>
