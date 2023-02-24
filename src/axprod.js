@@ -36,6 +36,8 @@ const GetProd = async (props) => {
       console.log(error);
     }
   );
+  console.log(response);
+
 };
 
 export default GetProd;
